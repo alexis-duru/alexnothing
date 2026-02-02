@@ -8,7 +8,8 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ReactLenis } from "@studio-freight/react-lenis";
-import SplitType from "../../../lib/SplitType/index";
+// 1. On SUPPRIME l'import statique ici :
+// import SplitType from "../../../lib/SplitType/index";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -24,69 +25,80 @@ const Page = () => {
 
   useGSAP(
     () => {
-      const tl = gsap.timeline();
+      // 2. On importe dynamiquement SplitType à l'intérieur du hook
+      const initSplitAndAnimate = async () => {
+        const { default: SplitType } =
+          await import("../../../lib/SplitType/index");
 
-      tl.fromTo(
-        titleRef.current,
-        { y: 100 },
-        { y: 0, duration: 1.5, ease: "power4.out" },
-      );
+        const tl = gsap.timeline();
 
-      tl.fromTo(
-        dateRef.current,
-        { y: 100 },
-        { y: 0, duration: 1.5, ease: "power4.out" },
-        "-=1.4",
-      );
+        tl.fromTo(
+          titleRef.current,
+          { y: 100 },
+          { y: 0, duration: 1.5, ease: "power4.out" },
+        );
 
-      tl.fromTo(
-        firstImgRef.current,
-        { clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)" },
-        {
-          clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
-          duration: 1.5,
-          ease: "power4.out",
-        },
-        "-=1",
-      );
+        tl.fromTo(
+          dateRef.current,
+          { y: 100 },
+          { y: 0, duration: 1.5, ease: "power4.out" },
+          "-=1.4",
+        );
 
-      imgRefs.current.forEach((img) => {
-        gsap.fromTo(
-          img,
+        tl.fromTo(
+          firstImgRef.current,
           { clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)" },
           {
             clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
             duration: 1.5,
             ease: "power4.out",
-            scrollTrigger: {
-              trigger: img,
-              start: "top 50%",
-            },
           },
+          "-=1",
         );
-      });
 
-      copyH3Refs.current.forEach((h3) => {
-        const split = new SplitType(h3, { types: "lines" });
-
-        split.lines.forEach((line) => {
-          const wrapper = document.createElement("div");
-          wrapper.className = "line";
-          line.parentNode.insertBefore(wrapper, line);
-          wrapper.appendChild(line);
+        imgRefs.current.forEach((img) => {
+          if (!img) return;
+          gsap.fromTo(
+            img,
+            { clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)" },
+            {
+              clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
+              duration: 1.5,
+              ease: "power4.out",
+              scrollTrigger: {
+                trigger: img,
+                start: "top 50%",
+              },
+            },
+          );
         });
 
-        gsap.from(h3.querySelectorAll(".line"), {
-          y: 36,
-          duration: 1,
-          stagger: 0.02,
-          ease: "power4.out",
-          scrollTrigger: {
-            trigger: h3,
-            start: "top 80%",
-          },
+        copyH3Refs.current.forEach((h3) => {
+          if (!h3) return;
+          // Utilisation de l'instance importée dynamiquement
+          const split = new SplitType(h3, { types: "lines" });
+
+          split.lines.forEach((line) => {
+            const wrapper = document.createElement("div");
+            wrapper.className = "line";
+            line.parentNode.insertBefore(wrapper, line);
+            wrapper.appendChild(line);
+          });
+
+          gsap.from(h3.querySelectorAll(".line"), {
+            y: 36,
+            duration: 1,
+            stagger: 0.02,
+            ease: "power4.out",
+            scrollTrigger: {
+              trigger: h3,
+              start: "top 80%",
+            },
+          });
         });
-      });
+      };
+
+      initSplitAndAnimate();
 
       return () => {
         ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
@@ -97,6 +109,7 @@ const Page = () => {
 
   return (
     <ReactLenis root>
+      {/* ... reste du JSX identique ... */}
       <div className="project-page" ref={containerRef}>
         <div className="container">
           <div className="project-page-title">

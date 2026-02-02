@@ -862,7 +862,7 @@ function repositionAfterSplit(element, settings, scrollPos) {
       node,
       isWordLike,
       settings,
-      scrollPos
+      scrollPos,
     ); // If element is a `<br>` tag return here
 
     if (/^br$/i.test(node.nodeName)) return;

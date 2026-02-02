@@ -7,7 +7,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import CustomEase from "gsap/CustomEase";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import SplitType from "../../lib/SplitType/index";
+// On ne fait plus l'import de SplitType ici en haut
 import { ReactLenis } from "@studio-freight/react-lenis";
 
 const AboutPage = () => {
@@ -36,92 +36,99 @@ const AboutPage = () => {
   ];
 
   useEffect(() => {
-    gsap.registerPlugin(CustomEase, ScrollTrigger);
-    CustomEase.create(
-      "hop2",
-      "M0,0 C0.354,0 0.464,0.133 0.498,0.502 0.532,0.872 0.651,1 1,1",
-    );
+    // Fonction asynchrone pour charger SplitType uniquement côté client
+    const init = async () => {
+      const { default: SplitType } = await import("../../lib/SplitType/index");
 
-    const applySplitType = (element) => {
-      const splitTexts = element.querySelectorAll("h1, h2, h3");
-      splitTexts.forEach((text) => {
-        const split = new SplitType(text, {
-          types: "lines",
-          tagName: "span",
-        });
+      gsap.registerPlugin(CustomEase, ScrollTrigger);
+      CustomEase.create(
+        "hop2",
+        "M0,0 C0.354,0 0.464,0.133 0.498,0.502 0.532,0.872 0.651,1 1,1",
+      );
 
-        split.lines.forEach((line) => {
-          const wrapper = document.createElement("div");
-          wrapper.className = "line-wrapper";
-          line.parentNode.insertBefore(wrapper, line);
-          wrapper.appendChild(line);
+      const applySplitType = (element) => {
+        const splitTexts = element.querySelectorAll("h1, h2, h3");
+        splitTexts.forEach((text) => {
+          const split = new SplitType(text, {
+            types: "lines",
+            tagName: "span",
+          });
+
+          split.lines.forEach((line) => {
+            const wrapper = document.createElement("div");
+            wrapper.className = "line-wrapper";
+            line.parentNode.insertBefore(wrapper, line);
+            wrapper.appendChild(line);
+          });
         });
-      });
+      };
+
+      if (aboutCopyRef.current) {
+        applySplitType(aboutCopyRef.current);
+        gsap.to(aboutCopyRef.current.querySelectorAll(".line-wrapper span"), {
+          y: 0,
+          stagger: 0.05,
+          delay: 1.5,
+          duration: 1.5,
+          ease: "power4.out",
+        });
+      }
+
+      if (cvHeaderRef.current) {
+        applySplitType(cvHeaderRef.current);
+      }
+
+      if (cvListRef.current) {
+        applySplitType(cvListRef.current);
+      }
+
+      if (cvWrapperRef.current) {
+        const cvHeaderSpans =
+          cvHeaderRef.current.querySelectorAll(".line-wrapper span");
+        const cvListSpans =
+          cvListRef.current.querySelectorAll(".line-wrapper span");
+
+        gsap.set([cvHeaderSpans, cvListSpans], { y: "100%" });
+
+        ScrollTrigger.create({
+          trigger: cvWrapperRef.current,
+          start: "top 50%",
+          onEnter: () => {
+            gsap.to(cvHeaderSpans, {
+              y: 0,
+              stagger: 0.05,
+              duration: 1.5,
+              ease: "power4.out",
+            });
+            gsap.to(cvListSpans, {
+              y: 0,
+              stagger: 0.02,
+              duration: 1.5,
+              ease: "power4.out",
+            });
+          },
+        });
+      }
+
+      if (heroImgRef.current) {
+        ScrollTrigger.create({
+          trigger: heroImgRef.current,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
+          onUpdate: (self) => {
+            const scale = 1 + self.progress * 0.5;
+            gsap.to(heroImgRef.current.querySelector("img"), {
+              scale: scale,
+              ease: "none",
+              duration: 0.1,
+            });
+          },
+        });
+      }
     };
 
-    if (aboutCopyRef.current) {
-      applySplitType(aboutCopyRef.current);
-      gsap.to(aboutCopyRef.current.querySelectorAll(".line-wrapper span"), {
-        y: 0,
-        stagger: 0.05,
-        delay: 1.5,
-        duration: 1.5,
-        ease: "power4.out",
-      });
-    }
-
-    if (cvHeaderRef.current) {
-      applySplitType(cvHeaderRef.current);
-    }
-
-    if (cvListRef.current) {
-      applySplitType(cvListRef.current);
-    }
-
-    if (cvWrapperRef.current) {
-      const cvHeaderSpans =
-        cvHeaderRef.current.querySelectorAll(".line-wrapper span");
-      const cvListSpans =
-        cvListRef.current.querySelectorAll(".line-wrapper span");
-
-      gsap.set([cvHeaderSpans, cvListSpans], { y: "100%" });
-
-      ScrollTrigger.create({
-        trigger: cvWrapperRef.current,
-        start: "top 50%",
-        onEnter: () => {
-          gsap.to(cvHeaderSpans, {
-            y: 0,
-            stagger: 0.05,
-            duration: 1.5,
-            ease: "power4.out",
-          });
-          gsap.to(cvListSpans, {
-            y: 0,
-            stagger: 0.02,
-            duration: 1.5,
-            ease: "power4.out",
-          });
-        },
-      });
-    }
-
-    if (heroImgRef.current) {
-      ScrollTrigger.create({
-        trigger: heroImgRef.current,
-        start: "top bottom",
-        end: "bottom top",
-        scrub: true,
-        onUpdate: (self) => {
-          const scale = 1 + self.progress * 0.5;
-          gsap.to(heroImgRef.current.querySelector("img"), {
-            scale: scale,
-            ease: "none",
-            duration: 0.1,
-          });
-        },
-      });
-    }
+    init();
 
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());
@@ -129,9 +136,7 @@ const AboutPage = () => {
         if (ref.current) {
           const splitTexts = ref.current.querySelectorAll("h1, h2, h3");
           splitTexts.forEach((text) => {
-            if (text.splitType && text.splitType.revert) {
-              text.splitType.revert();
-            }
+            // Pas besoin de revert manuel complexe si on nettoie les wrappers
             text.querySelectorAll(".line-wrapper").forEach((wrapper) => {
               wrapper.replaceWith(...wrapper.childNodes);
             });
