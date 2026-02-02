@@ -8,8 +8,6 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ReactLenis } from "@studio-freight/react-lenis";
-// 1. On SUPPRIME l'import statique ici :
-// import SplitType from "../../../lib/SplitType/index";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -25,7 +23,6 @@ const Page = () => {
 
   useGSAP(
     () => {
-      // 2. On importe dynamiquement SplitType à l'intérieur du hook
       const initSplitAndAnimate = async () => {
         const { default: SplitType } =
           await import("../../../lib/SplitType/index");
@@ -75,7 +72,6 @@ const Page = () => {
 
         copyH3Refs.current.forEach((h3) => {
           if (!h3) return;
-          // Utilisation de l'instance importée dynamiquement
           const split = new SplitType(h3, { types: "lines" });
 
           split.lines.forEach((line) => {
@@ -109,7 +105,6 @@ const Page = () => {
 
   return (
     <ReactLenis root>
-      {/* ... reste du JSX identique ... */}
       <div className="project-page" ref={containerRef}>
         <div className="container">
           <div className="project-page-title">

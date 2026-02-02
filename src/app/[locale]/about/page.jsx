@@ -7,7 +7,6 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import CustomEase from "gsap/CustomEase";
 import ScrollTrigger from "gsap/ScrollTrigger";
-// On ne fait plus l'import de SplitType ici en haut
 import { ReactLenis } from "@studio-freight/react-lenis";
 
 const AboutPage = () => {
@@ -36,7 +35,6 @@ const AboutPage = () => {
   ];
 
   useEffect(() => {
-    // Fonction asynchrone pour charger SplitType uniquement côté client
     const init = async () => {
       const { default: SplitType } = await import("../../lib/SplitType/index");
 
@@ -136,7 +134,6 @@ const AboutPage = () => {
         if (ref.current) {
           const splitTexts = ref.current.querySelectorAll("h1, h2, h3");
           splitTexts.forEach((text) => {
-            // Pas besoin de revert manuel complexe si on nettoie les wrappers
             text.querySelectorAll(".line-wrapper").forEach((wrapper) => {
               wrapper.replaceWith(...wrapper.childNodes);
             });

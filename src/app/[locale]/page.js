@@ -33,11 +33,9 @@ export default function Home() {
 
   useGSAP(
     () => {
-      if (showPreloader) {
-        const tl = gsap.timeline({
-          onComplete: () => setShowPreloader(false),
-        });
+      const tl = gsap.timeline();
 
+      if (showPreloader) {
         tl.to(progressBarRef.current, {
           scaleX: 1,
           duration: 4,
@@ -57,18 +55,30 @@ export default function Home() {
           clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
           duration: 1.5,
           ease: "hop-main",
+          onComplete: () => setShowPreloader(false),
+        });
+
+        tl.to(
+          ".hero-title .line h1",
+          {
+            y: 0,
+            stagger: 0.1,
+            duration: 1.5,
+            ease: "power4.out",
+          },
+          "-=0.5",
+        );
+      } else {
+        gsap.to(".hero-title .line h1", {
+          y: 0,
+          stagger: 0.1,
+          delay: 0.5,
+          duration: 1.5,
+          ease: "power4.out",
         });
       }
-
-      gsap.to(".hero-title .line h1", {
-        y: 0,
-        stagger: 0.1,
-        delay: showPreloader ? 5.75 : 1,
-        duration: 1.5,
-        ease: "power4.out",
-      });
     },
-    { scope: containerRef, dependencies: [showPreloader] },
+    { scope: containerRef, dependencies: [] },
   );
 
   return (
@@ -82,13 +92,12 @@ export default function Home() {
         <div className="hero-img">
           <img src="/home/hero-img.jpg" alt="" />
         </div>
-
         <div className="hero-title">
-          <div className="line">
-            <h1>{t("heroLine1")}</h1>
+          <div className="line" style={{ overflow: "hidden" }}>
+            <h1 style={{ transform: "translateY(100%)" }}>{t("heroLine1")}</h1>
           </div>
-          <div className="line">
-            <h1>{t("heroLine2")}</h1>
+          <div className="line" style={{ overflow: "hidden" }}>
+            <h1 style={{ transform: "translateY(100%)" }}>{t("heroLine2")}</h1>
           </div>
         </div>
       </div>
