@@ -1,0 +1,54 @@
+.menu-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  padding: 2em;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+}
+
+.menu-toggle-wrapper,
+.logo,
+.menu-bar-right {
+  position: relative;
+  flex: 1;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-bar-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1.5em;
+}
+
+.portfolio-year {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.locale-switch {
+  background: none;
+  border: 1px solid currentColor;
+  color: inherit;
+  padding: 0.4em 0.8em;
+  font-size: 0.85rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.locale-switch:hover {
+  background: var(--text-color, #fff);
+  color: var(--bg-color, #000);
+}

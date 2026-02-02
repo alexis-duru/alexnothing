@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "title": "Stefan Markovic | Codegrid",
+    "description": "CGMWT Septembre par Codegrid"
+  },
+  "navigation": {
+    "home": "Accueil",
+    "portfolio": "Portfolio",
+    "photos": "Photos",
+    "about": "À propos",
+    "contact": "Contact"
+  },
+  "home": {
+    "heroLine1": "Un développeur indépendant",
+    "heroLine2": "basé à Toronto"
+  },
+  "about": {
+    "bio": "Biographie",
+    "cv": "CV",
+    "paragraph1": "Passionné par la création d'expériences numériques immersives, Stefan Markovic allie design et code pour repousser les limites de ce qui est possible sur le web. Son approche se concentre sur la création d'interfaces fluides, réactives et engageantes qui laissent une impression durable.",
+    "paragraph2": "Avec une solide maîtrise de JavaScript, React et des technologies web modernes, Stefan excelle dans la transformation d'idées complexes en réalités interactives. Qu'il s'agisse d'un site portfolio élégant, d'une application web dynamique ou d'une animation captivante, il aborde chaque projet avec créativité et précision technique.",
+    "paragraph3": "Animé par la curiosité et l'innovation, Stefan explore constamment de nouveaux outils, techniques et frameworks. Il n'est pas qu'un simple développeur — c'est un résolveur de problèmes, prêt à donner vie à votre vision avec une touche unique et moderne."
+  },
+  "contact": {
+    "title": "Contact",
+    "where": "Où",
+    "vat": "TVA",
+    "socials": "Réseaux sociaux",
+    "mail": "Email"
+  },
+  "footer": {
+    "rights": "Tous droits réservés",
+    "copyright": "Codegrid 2024 ©"
+  },
+  "menu": {
+    "address": {
+      "name": "Stefan Markovic",
+      "street": "9 quao Androe Rockfield",
+      "city": "69001 Ontario",
+      "country": "Canada"
+    },
+    "contactInfo": {
+      "email1": "contact@stefanmarkovic.fr",
+      "email2": "job@stefanmarkovic.fr",
+      "phone": "01 62 31 82 42"
+    }
+  },
+  "socials": {
+    "instagram": "Instagram",
+    "linkedin": "LinkedIn",
+    "twitter": "Twitter",
+    "facebook": "Facebook",
+    "vimeo": "Vimeo"
+  },
+  "cvItems": {
+    "item1": "Développeur Full Stack Lead & Chef de Projet chez TechInnovate Solutions",
+    "item2": "Développeur Full Stack Senior spécialisé en React et Node.js chez DataDrive Systems",
+    "item3": "Développeur Frontend spécialisé en React et Vue.js chez CreativeTech Studios",
+    "item4": "Développeur Web Junior avec emphase sur JavaScript et PHP chez WebWizards Inc.",
+    "item5": "Stagiaire en Développement Web apprenant le stack MERN chez CodeCrafters",
+    "item6": "Licence en Informatique, Tech University - Thèse sur l'IA dans le Développement Web",
+    "item7": "Designer Web Freelance spécialisé dans les thèmes WordPress et Shopify",
+    "item8": "Contributeur Open Source au projet React Native - Implémentation de fonctionnalités d'accessibilité clés",
+    "item9": "Conférencier invité sur les Technologies Web Modernes au collège communautaire local",
+    "item10": "Auteur publié : 'Maîtriser le Développement Full Stack' par Tech Publishing House",
+    "item11": "Co-fondateur et CTO de la startup EdTech 'LearnLoop' - Développement du MVP et obtention du financement d'amorçage"
+  },
+  "language": {
+    "switch": "EN"
+  }
+}
