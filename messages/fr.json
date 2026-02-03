@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "title": "Stefan Markovic | Codegrid",
+    "title": "Alex Nothing",
     "description": "CGMWT Septembre par Codegrid"
   },
   "navigation": {
@@ -11,13 +11,13 @@
     "contact": "Contact"
   },
   "home": {
-    "heroLine1": "Un développeur indépendant",
-    "heroLine2": "basé à Toronto"
+    "heroLine1": "Alex Nothing crée une musique",
+    "heroLine2": "électronique fluide et immersive"
   },
   "about": {
     "bio": "Biographie",
     "cv": "CV",
-    "paragraph1": "Passionné par la création d'expériences numériques immersives, Stefan Markovic allie design et code pour repousser les limites de ce qui est possible sur le web. Son approche se concentre sur la création d'interfaces fluides, réactives et engageantes qui laissent une impression durable.",
+    "paragraph1": "Passionné par la création d'expériences numériques immersives, Alex Nothing allie design et code pour repousser les limites de ce qui est possible sur le web. Son approche se concentre sur la création d'interfaces fluides, réactives et engageantes qui laissent une impression durable.",
     "paragraph2": "Avec une solide maîtrise de JavaScript, React et des technologies web modernes, Stefan excelle dans la transformation d'idées complexes en réalités interactives. Qu'il s'agisse d'un site portfolio élégant, d'une application web dynamique ou d'une animation captivante, il aborde chaque projet avec créativité et précision technique.",
     "paragraph3": "Animé par la curiosité et l'innovation, Stefan explore constamment de nouveaux outils, techniques et frameworks. Il n'est pas qu'un simple développeur — c'est un résolveur de problèmes, prêt à donner vie à votre vision avec une touche unique et moderne."
   },
@@ -30,11 +30,11 @@
   },
   "footer": {
     "rights": "Tous droits réservés",
-    "copyright": "Codegrid 2024 ©"
+    "copyright": "Alex Nothing"
   },
   "menu": {
     "address": {
-      "name": "Stefan Markovic",
+      "name": "Alex Nothing",
       "street": "9 quao Androe Rockfield",
       "city": "69001 Ontario",
       "country": "Canada"

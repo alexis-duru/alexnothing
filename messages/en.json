@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "title": "Stefan Markovic | Codegrid",
+    "title": "Alex Nothing",
     "description": "CGMWT September by Codegrid"
   },
   "navigation": {
@@ -11,13 +11,13 @@
     "contact": "Contact"
   },
   "home": {
-    "heroLine1": "An independent developer",
-    "heroLine2": "based in Toronto"
+    "heroLine1": "Alex Nothing, crafts a free-flowing ",
+    "heroLine2": "and immersive form of electronic music"
   },
   "about": {
     "bio": "Bio",
     "cv": "CV",
-    "paragraph1": "Passionate about crafting immersive digital experiences, Stefan Markovic blends design and code to push the boundaries of what's possible on the web. His approach focuses on creating seamless, responsive, and engaging interfaces that leave a lasting impact.",
+    "paragraph1": "Passionate about crafting immersive digital experiences, Alex Nothing blends design and code to push the boundaries of what's possible on the web. His approach focuses on creating seamless, responsive, and engaging interfaces that leave a lasting impact.",
     "paragraph2": "With a strong foundation in JavaScript, React, and modern web technologies, Stefan excels at turning complex ideas into interactive realities. Whether it's a sleek portfolio site, a dynamic web app, or a mesmerizing animation, he approaches each project with creativity and technical precision.",
     "paragraph3": "Driven by curiosity and innovation, Stefan constantly explores new tools, techniques, and frameworks. He's not just a developer—he's a problem solver, ready to bring your vision to life with a unique and modern touch."
   },
@@ -30,11 +30,11 @@
   },
   "footer": {
     "rights": "All rights reserved",
-    "copyright": "Codegrid 2024 ©"
+    "copyright": "Alex Nothing"
   },
   "menu": {
     "address": {
-      "name": "Stefan Markovic",
+      "name": "Alex Nothing",
       "street": "9 quao Androe Rockfield",
       "city": "69001 Ontario",
       "country": "Canada"

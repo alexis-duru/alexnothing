@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
 import { Link } from "@/i18n/routing";
 import "./MenuBar.css";
 import MenuBtn from "../MenuBtn/MenuBtn";
@@ -10,6 +12,26 @@ const MenuBar = ({
   onSwitchLocale,
   localeSwitchLabel,
 }) => {
+  const [time, setTime] = useState("");
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      const franceTime = now.toLocaleTimeString("fr-FR", {
+        timeZone: "Europe/Paris",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      });
+      setTime(franceTime);
+    };
+
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="menu-bar">
       <div className="menu-toggle-wrapper">
@@ -17,7 +39,7 @@ const MenuBar = ({
       </div>
 
       <div className="logo" onClick={closeMenu}>
-        <Link href="/">Stefan Markovic</Link>
+        <Link href="/">Alex Nothing</Link>
       </div>
 
       <div className="menu-bar-right">
@@ -25,7 +47,7 @@ const MenuBar = ({
           {localeSwitchLabel}
         </button>
         <div className="portfolio-year">
-          <p>&copy; 2024</p>
+          <p>Bordeaux, {time}</p>
         </div>
       </div>
     </div>

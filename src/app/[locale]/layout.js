@@ -14,9 +14,10 @@ export async function generateMetadata({ params }) {
   const messages = await getMessages({ locale });
 
   return {
-    title: messages.metadata?.title || "Stefan Markovic | Codegrid",
+    title: messages.metadata?.title || "Alex Nothing",
     description:
-      messages.metadata?.description || "CGMWT September by Codegrid",
+      messages.metadata?.description ||
+      "crafts a free-flowing and immersive form of electronic music",
   };
 }
 
@@ -33,7 +34,7 @@ export default async function LocaleLayout({ children, params }) {
 
   // Providing all messages to the client
   // side is the easiest way to get started
-  const messages = await getMessages();
+  const messages = await getMessages({ locale });
 
   return (
     <html lang={locale}>

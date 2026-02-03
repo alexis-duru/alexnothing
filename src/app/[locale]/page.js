@@ -59,7 +59,7 @@ export default function Home() {
         });
 
         tl.to(
-          ".hero-title .line h1",
+          ".hero-title .line .text-translate",
           {
             y: 0,
             stagger: 0.1,
@@ -69,7 +69,7 @@ export default function Home() {
           "-=0.5",
         );
       } else {
-        gsap.to(".hero-title .line h1", {
+        gsap.to(".hero-title .line .text-translate", {
           y: 0,
           stagger: 0.1,
           delay: 0.5,
@@ -90,16 +90,26 @@ export default function Home() {
       )}
       <div className="home-page" ref={containerRef}>
         <div className="hero-img">
-          <img src="/home/hero-img.jpg" alt="" />
+          <img src="/img/hero/hero-3.webp" alt="" />
         </div>
-        <div className="hero-title">
+        <h1 className="hero-title">
           <div className="line" style={{ overflow: "hidden" }}>
-            <h1 style={{ transform: "translateY(100%)" }}>{t("heroLine1")}</h1>
+            <div
+              className="text-translate text-1"
+              style={{ transform: "translateY(100%)" }}
+            >
+              {t("heroLine1")}
+            </div>
           </div>
           <div className="line" style={{ overflow: "hidden" }}>
-            <h1 style={{ transform: "translateY(100%)" }}>{t("heroLine2")}</h1>
+            <div
+              className="text-translate"
+              style={{ transform: "translateY(100%)" }}
+            >
+              {t("heroLine2")}
+            </div>
           </div>
-        </div>
+        </h1>
       </div>
       <Footer />
     </>

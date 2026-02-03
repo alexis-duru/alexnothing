@@ -14,7 +14,7 @@ export const socials = [
 ];
 
 export const address = [
-  "Stefan Markovic",
+  "Alex Nothing",
   "9 quao Androe Rockfield",
   "69001 Ontario",
   "Canada",

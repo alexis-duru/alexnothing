@@ -13,7 +13,7 @@ const Footer = () => {
           <p>{t("rights")}</p>
         </div>
         <div className="footer-item">
-          <p>{t("copyright")}</p>
+          <p>{t("copyright") + ` ${new Date().getFullYear()}`}</p>
         </div>
       </div>
     </>
