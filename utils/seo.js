@@ -4,10 +4,12 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL;
 const SITE_NAME = "Alex Nothing";
 
 /**
- * Génère l'objet robots selon l'environnement
+ * Génère l'objet robots selon l'environnement.
+ * Utilise la variable NEXT_PUBLIC_ALLOW_INDEXING configurée sur Netlify.
  */
 export const getRobots = () => {
   const isProd = process.env.NEXT_PUBLIC_ALLOW_INDEXING === "true";
+
   return {
     index: isProd,
     follow: isProd,
@@ -23,14 +25,14 @@ export const getRobots = () => {
 };
 
 /**
- * Helper pour construire les métadonnées de page facilement
+ * Helper pour construire les métadonnées de page facilement.
  * @param {Object} options - Options de métadonnées
  * @param {string} options.title - Titre de la page
  * @param {string} options.description - Description de la page
  * @param {string} options.image - Image OG (optionnel)
  * @param {string} options.slug - Slug de la page (ex: "/about")
  * @param {string} options.locale - Locale actuelle (ex: "fr", "en")
- * @param {boolean} options.noIndex - Désactiver l'indexation (optionnel)
+ * @param {boolean} options.noIndex - Force le noindex même en prod (optionnel)
  * @param {string} options.type - Type de page OpenGraph (optionnel, défaut: "website")
  * @param {Array} options.keywords - Mots-clés pour le SEO (optionnel)
  */
@@ -48,7 +50,7 @@ export function constructMetadata({
   const localePath = locale === "fr" ? "" : `/${locale}`;
   const url = `${SITE_URL}${localePath}${cleanSlug}`;
 
-  // Construire le titre complet
+  // Construction du titre complet
   const fullTitle = title === SITE_NAME ? title : `${title} | ${SITE_NAME}`;
 
   return {
@@ -65,6 +67,7 @@ export function constructMetadata({
         en: `${SITE_URL}/en${cleanSlug}`,
       },
     },
+    // Si noIndex est forcé manuellement OU si on est pas en prod, on désactive l'indexation
     robots: noIndex ? { index: false, follow: false } : getRobots(),
     openGraph: {
       title: fullTitle,
