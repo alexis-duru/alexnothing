@@ -1,10 +1,8 @@
 <!-- Générer une liste todo -->
 
 - [ ] Définir les images par section et les ajouter dans Figma
-- [ ] Créer le favicon
 - [ ] Ajouter des chiffres sur le loader au démarrage du site
 - [ ] Remplir toutes les métadescriptions des images
-- [ ] Créer le sitemap
 
 - [ ] Préparer toutes les metatitle et metadescription pour le SEO
 - [ ] Ajouter les liens des plateformes de streaming
