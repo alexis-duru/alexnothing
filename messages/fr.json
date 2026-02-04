@@ -1,7 +1,75 @@
 {
   "metadata": {
     "title": "Alex Nothing",
-    "description": "CGMWT Septembre par Codegrid"
+    "description": "Alex Nothing crée une musique électronique fluide et immersive. Découvrez son univers artistique unique.",
+    "home": {
+      "title": "Alex Nothing",
+      "description": "Alex Nothing crée une musique électronique fluide et immersive. Découvrez son univers artistique unique mêlant sonorités électroniques et expériences sensorielles."
+    },
+    "about": {
+      "title": "À propos",
+      "description": "Découvrez l'histoire et le parcours d'Alex Nothing, artiste de musique électronique. Biographie, CV et expériences créatives."
+    },
+    "portfolio": {
+      "title": "Portfolio",
+      "description": "Explorez le portfolio d'Alex Nothing : projets musicaux, créations sonores et collaborations artistiques dans l'univers de la musique électronique."
+    },
+    "photos": {
+      "title": "Photos",
+      "description": "Galerie photo d'Alex Nothing : concerts, sessions studio, coulisses et moments capturés de son parcours artistique."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Contactez Alex Nothing pour vos projets, collaborations ou demandes de booking. Retrouvez toutes les informations de contact."
+    },
+    "sitemap": {
+      "title": "Plan du site",
+      "description": "Plan du site Alex Nothing - Accédez facilement à toutes les pages : accueil, portfolio, photos, à propos et contact."
+    },
+    "notFound": {
+      "title": "Page non trouvée",
+      "description": "La page que vous recherchez n'existe pas. Retournez à l'accueil pour découvrir le site d'Alex Nothing."
+    }
+  },
+  "keywords": {
+    "global": [
+      "Alex Nothing",
+      "musique électronique",
+      "artiste",
+      "electronic music",
+      "immersive",
+      "soundscape"
+    ],
+    "home": [
+      "Alex Nothing",
+      "musique électronique",
+      "artiste électro",
+      "immersive music",
+      "ambient electronic"
+    ],
+    "about": [
+      "biographie Alex Nothing",
+      "parcours artiste",
+      "CV musicien",
+      "histoire Alex Nothing"
+    ],
+    "portfolio": [
+      "portfolio musique",
+      "projets Alex Nothing",
+      "créations sonores",
+      "collaborations musicales"
+    ],
+    "photos": [
+      "photos Alex Nothing",
+      "galerie artiste",
+      "concerts électro",
+      "sessions studio"
+    ],
+    "contact": [
+      "contact Alex Nothing",
+      "booking artiste",
+      "collaboration musicale"
+    ]
   },
   "navigation": {
     "home": "Accueil",
@@ -67,5 +135,18 @@
   },
   "language": {
     "switch": "EN"
+  },
+  "sitemap": {
+    "title": "Plan du site",
+    "sitemap": "Plan du site",
+    "pages": "Pages",
+    "description": "À propos",
+    "descriptionText": "Cette page répertorie l'ensemble des pages accessibles sur ce site. Elle permet une navigation rapide et facilite l'indexation par les moteurs de recherche.",
+    "lastUpdate": "Dernière mise à jour"
+  },
+  "notFound": {
+    "title": "Page non trouvée",
+    "description": "La page que vous recherchez n'existe pas ou a été déplacée.",
+    "backHome": "Retour à l'accueil"
   }
 }
