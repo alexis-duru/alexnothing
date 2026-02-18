@@ -46,8 +46,10 @@ const MenuBar = ({
         <button className="locale-switch" onClick={onSwitchLocale}>
           {localeSwitchLabel}
         </button>
-        <div className="portfolio-year">
-          <p>Bordeaux, {time}</p>
+        <div className="menu-time">
+          <p>
+            Bordeaux, <span>{time}</span>
+          </p>
         </div>
       </div>
     </div>

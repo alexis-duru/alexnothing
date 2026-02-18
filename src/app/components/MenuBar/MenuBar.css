@@ -29,16 +29,20 @@
   gap: 1.5em;
 }
 
-.portfolio-year {
+.menu-time {
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
 
-.portfolio-year p {
+.menu-time p {
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.01em;
   font-size: 16px;
+}
+
+.menu-time span {
+  font-size: 14px;
 }
 
 .locale-switch {

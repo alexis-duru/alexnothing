@@ -43,24 +43,60 @@ const Page = () => {
           <div className="col">
             <div className="where" ref={(el) => (sectionsRef.current[0] = el)}>
               <div className="title">
-                <p>{t("where")}</p>
+                <p>{t("musicPlatforms")}</p>
               </div>
               <div className="item">
-                <p>Spazio Alva</p>
+                <p>
+                  <a
+                    href="https://open.spotify.com/intl-fr/artist/5IeewgS3Eds4y2s9A663lN?si=2Pj4e1boQFq69LyxjL5GMw"
+                    target="_blank"
+                  >
+                    Spotify
+                  </a>
+                </p>
               </div>
               <div className="item">
-                <p>Vicolo Terrà, 5 VR/B</p>
+                <p>
+                  <a
+                    href="https://music.apple.com/fr/artist/alex-nothing/1858966255"
+                    target="_blank"
+                  >
+                    Apple Music
+                  </a>
+                </p>
               </div>
               <div className="item">
-                <p>37129 . Verona . Italy</p>
+                <p>
+                  <a
+                    href="https://www.deezer.com/fr/artist/69449"
+                    target="_blank"
+                  >
+                    Deezer
+                  </a>
+                </p>
+              </div>
+              <div className="item">
+                <p>
+                  <a href="https://soundcloud.com/alexnothing" target="_blank">
+                    Soundcloud
+                  </a>
+                </p>
+              </div>
+              <div className="item">
+                <p>
+                  <a
+                    href="https://alexnothingmusic.bandcamp.com/"
+                    target="_blank"
+                  >
+                    Bandcamp
+                  </a>
+                </p>
               </div>
             </div>
             <div className="vat" ref={(el) => (sectionsRef.current[1] = el)}>
-              <div className="title">
-                <p>{t("vat")}</p>
-              </div>
+              <div className="title">{/* <p>{t("vat")}</p> */}</div>
               <div className="item">
-                <p>9724865620</p>
+                <p>...</p>
               </div>
             </div>
           </div>
@@ -78,17 +114,29 @@ const Page = () => {
               </div>
               <div className="item">
                 <p>
-                  <a href="#">Instagram</a>
+                  <a
+                    href="https://www.instagram.com/alexnothingmusic"
+                    target="_blank"
+                  >
+                    Instagram
+                  </a>
                 </p>
               </div>
               <div className="item">
                 <p>
-                  <a href="#">LinkedIn</a>
+                  <a href="https://tiktok.com/@alexnothing" target="_blank">
+                    Tiktok
+                  </a>
                 </p>
               </div>
               <div className="item">
                 <p>
-                  <a href="#">Vimeo</a>
+                  <a
+                    href="https://www.facebook.com/alexnothingmusic"
+                    target="_blank"
+                  >
+                    Facebook
+                  </a>
                 </p>
               </div>
             </div>
@@ -98,7 +146,9 @@ const Page = () => {
               </div>
               <div className="item">
                 <p>
-                  <a href="#">contact@codegrid.com</a>
+                  <a href="mailto:alexnothing.music@gmail.com">
+                    alexnothing.music@gmail.com
+                  </a>
                 </p>
               </div>
             </div>

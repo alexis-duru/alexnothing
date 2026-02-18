@@ -79,8 +79,8 @@
     "contact": "Contact"
   },
   "home": {
-    "heroLine1": "Alex Nothing crée une musique",
-    "heroLine2": "électronique fluide et immersive"
+    "heroLine1": "Alex Nothing",
+    "heroLine2": "Entre rythme & émotion"
   },
   "about": {
     "bio": "Biographie",
@@ -91,7 +91,7 @@
   },
   "contact": {
     "title": "Contact",
-    "where": "Où",
+    "musicPlatforms": "Plateformes musicales",
     "vat": "TVA",
     "socials": "Réseaux sociaux",
     "mail": "Email"

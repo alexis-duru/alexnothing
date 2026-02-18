@@ -1,6 +1,6 @@
 export const links = [
   { label: "Home", path: "/" },
-  { label: "Portfolio", path: "/portfolio" },
+  // { label: "Portfolio", path: "/portfolio" },
   { label: "Photos", path: "/photos" },
   { label: "About", path: "/about" },
   { label: "Contact", path: "/contact" },

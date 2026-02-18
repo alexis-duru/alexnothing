@@ -75,8 +75,8 @@
     "contact": "Contact"
   },
   "home": {
-    "heroLine1": "Alex Nothing, crafts a free-flowing ",
-    "heroLine2": "and immersive form of electronic music"
+    "heroLine1": "Alex Nothing ",
+    "heroLine2": "Between rhythm & emotion"
   },
   "about": {
     "bio": "Bio",
@@ -87,7 +87,7 @@
   },
   "contact": {
     "title": "Contact",
-    "where": "Where",
+    "musicPlatforms": "Music Platforms",
     "vat": "VAT",
     "socials": "Socials",
     "mail": "Mail"

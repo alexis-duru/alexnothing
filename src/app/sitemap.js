@@ -7,7 +7,7 @@ export default function sitemap() {
   const pages = [
     { path: "", priority: 1.0 },
     { path: "/about", priority: 0.8 },
-    { path: "/portfolio", priority: 0.9 },
+    // { path: "/portfolio", priority: 0.9 },
     { path: "/photos", priority: 0.8 },
     { path: "/contact", priority: 0.7 },
   ];

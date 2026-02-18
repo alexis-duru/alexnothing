@@ -32,7 +32,7 @@ const Menu = () => {
 
   const links = [
     { label: t("home"), path: "/" },
-    { label: t("portfolio"), path: "/portfolio" },
+    // { label: t("portfolio"), path: "/portfolio" },
     { label: t("photos"), path: "/photos" },
     { label: t("about"), path: "/about" },
     { label: t("contact"), path: "/contact" },

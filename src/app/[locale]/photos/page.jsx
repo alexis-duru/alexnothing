@@ -16,6 +16,31 @@ const Photos = () => {
   const previewsRef = useRef(null);
   const sliderRef = useRef(null);
 
+  // Create the tableau of the img paths, meta descriptption
+  // alex-nothing-iboat.webp
+  // alex-nothing-meca-bordeaux.webp
+  // alex-nothing-rocher-de-palmer.webp
+  // alex-nothing-with-u.webp
+
+  const images = [
+    {
+      src: "/assets/alex-nothing-iboat.webp",
+      title: "The Revival Ensemble",
+    },
+    {
+      src: "/assets/alex-nothing-meca-bordeaux.webp",
+      title: "Above The Canvas",
+    },
+    {
+      src: "/assets/alex-nothing-rocher-de-palmer.webp",
+      title: "Harmony in Every Note",
+    },
+    {
+      src: "/assets/alex-nothing-with-u.webp",
+      title: "Redefining Imagination",
+    },
+  ];
+
   useGSAP(
     () => {
       gsap.registerPlugin(CustomEase);
@@ -57,7 +82,7 @@ const Photos = () => {
         slideImg.classList.add("img");
 
         const slideImgElem = document.createElement("img");
-        slideImgElem.src = `/assets/img${currentImg}.jpg`;
+        slideImgElem.src = images[currentImg - 1].src;
         gsap.set(slideImgElem, { x: direction === "left" ? -500 : 500 });
 
         slideImg.appendChild(slideImgElem);
@@ -174,18 +199,18 @@ const Photos = () => {
       <div className="slider" ref={sliderRef}>
         <div className="slider-images" ref={sliderImagesRef}>
           <div className="img">
-            <img src="/assets/img1.jpg" />
+            <img src="/assets/alex-nothing-iboat.webp" />
           </div>
         </div>
 
-        <div className="slider-title">
+        {/* <div className="slider-title">
           <div className="slider-title-wrapper" ref={titlesRef}>
             <p>The Revival Ensemble</p>
             <p>Above The Canvas</p>
             <p>Harmony in Every Note</p>
             <p>Redefining Imagination</p>
           </div>
-        </div>
+        </div> */}
 
         <div className="slider-counter">
           <div className="counter" ref={counterRef}>
@@ -203,15 +228,15 @@ const Photos = () => {
         </div>
 
         <div className="slider-preview">
-          {[1, 2, 3, 4].map((num) => (
+          {images.map((image, index) => (
             <div
-              key={num}
-              className={`preview ${num === 1 ? "active" : ""}`}
+              key={index}
+              className={`preview ${index === 0 ? "active" : ""}`}
               ref={(el) =>
                 (previewsRef.current = [...(previewsRef.current || []), el])
               }
             >
-              <img src={`/assets/img${num}.jpg`} />
+              <img src={image.src} />
             </div>
           ))}
         </div>
