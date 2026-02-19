@@ -34,15 +34,7 @@ const MenuBar = ({
 
   return (
     <div className="menu-bar">
-      <div className="menu-toggle-wrapper">
-        <MenuBtn isOpen={isOpen} toggleMenu={toggleMenu} />
-      </div>
-
-      <div className="logo" onClick={closeMenu}>
-        <Link href="/">Alex Nothing</Link>
-      </div>
-
-      <div className="menu-bar-right">
+      <div className="menu-bar-left">
         <button className="locale-switch" onClick={onSwitchLocale}>
           {localeSwitchLabel}
         </button>
@@ -51,6 +43,12 @@ const MenuBar = ({
             Bordeaux, <span>{time}</span>
           </p>
         </div>
+      </div>
+      <div className="logo" onClick={closeMenu}>
+        <p>Alex Nothing</p>
+      </div>
+      <div className="menu-toggle-wrapper">
+        <MenuBtn isOpen={isOpen} toggleMenu={toggleMenu} />
       </div>
     </div>
   );

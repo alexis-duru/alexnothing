@@ -55,21 +55,18 @@ export default function Home() {
             ease: "power1.inOut",
             onUpdate: () => {
               if (numberRef.current) {
-                // padStart(3, "0") permet de garder le format 001, 010, 100
                 numberRef.current.textContent = `${Math.round(progressValue.val).toString().padStart(3, "0")}%`;
               }
             },
           },
-          "<", // Démarre en même temps que la barre
+          "<",
         );
 
-        // 2. Disparition du chiffre avant la fin du preloader
         tl.to(".progress-number", {
           opacity: 0,
           duration: 0.5,
         });
 
-        // 3. Animation de sortie de la barre
         tl.set(progressBarRef.current, { transformOrigin: "right" }).to(
           progressBarRef.current,
           {
@@ -79,7 +76,6 @@ export default function Home() {
           },
         );
 
-        // 4. Rideau final
         tl.to(preloaderRef.current, {
           clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
           duration: 1.5,

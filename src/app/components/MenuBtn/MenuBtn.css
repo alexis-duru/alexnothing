@@ -14,11 +14,13 @@
 
 .menu-copy p#menu-open {
   position: absolute;
+  right: 0;
   transform: translateY(0px);
 }
 
 .menu-copy p#menu-text {
   position: absolute;
+  right: 0;
   transform: translateY(24px);
 }
 

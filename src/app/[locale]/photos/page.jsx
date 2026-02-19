@@ -32,11 +32,11 @@ const Photos = () => {
       title: "Above The Canvas",
     },
     {
-      src: "/assets/alex-nothing-rocher-de-palmer.webp",
+      src: "/assets/alex-nothing-meca.webp",
       title: "Harmony in Every Note",
     },
     {
-      src: "/assets/alex-nothing-with-u.webp",
+      src: "/assets/alex-nothing-iboat-premier-partie.webp",
       title: "Redefining Imagination",
     },
   ];

@@ -9,11 +9,27 @@
   z-index: 10;
 }
 
+.logo {
+  user-select: none;
+}
+
 .menu-toggle-wrapper,
 .logo,
-.menu-bar-right {
+.menu-bar-left {
   position: relative;
   flex: 1;
+}
+
+.menu-toggle-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.menu-toggle {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
 
 .logo {
@@ -22,9 +38,9 @@
   align-items: center;
 }
 
-.menu-bar-right {
+.menu-bar-left {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
   gap: 1.5em;
 }
@@ -33,6 +49,12 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+}
+
+@media (max-width: 900px) {
+  .menu-time {
+    display: none;
+  }
 }
 
 .menu-time p {
