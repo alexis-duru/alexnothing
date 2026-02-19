@@ -14,10 +14,40 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 7px;
+  height: 3px;
   background-color: var(--text);
   transform: scaleX(0);
   transform-origin: left;
+}
+
+
+.pre-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.progress-number {
+  font-family: monospace; /* Ou ta font actuelle */
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 20px;
+  font-variant-numeric: tabular-nums; /* Empêche les chiffres de bouger */
+  display: flex;
+  gap: 0.5rem;
+  letter-spacing: 0.05em;
+  position: absolute;
+  bottom: 0rem;
 }
 
 .home-page {

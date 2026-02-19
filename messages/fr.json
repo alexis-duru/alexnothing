@@ -80,14 +80,15 @@
   },
   "home": {
     "heroLine1": "Alex Nothing",
-    "heroLine2": "Entre rythme & émotion"
+    "heroLine2": "\"It's All Gone\" bientôt disponible"
   },
   "about": {
     "bio": "Biographie",
     "cv": "CV",
-    "paragraph1": "Passionné par la création d'expériences numériques immersives, Alex Nothing allie design et code pour repousser les limites de ce qui est possible sur le web. Son approche se concentre sur la création d'interfaces fluides, réactives et engageantes qui laissent une impression durable.",
-    "paragraph2": "Avec une solide maîtrise de JavaScript, React et des technologies web modernes, Stefan excelle dans la transformation d'idées complexes en réalités interactives. Qu'il s'agisse d'un site portfolio élégant, d'une application web dynamique ou d'une animation captivante, il aborde chaque projet avec créativité et précision technique.",
-    "paragraph3": "Animé par la curiosité et l'innovation, Stefan explore constamment de nouveaux outils, techniques et frameworks. Il n'est pas qu'un simple développeur — c'est un résolveur de problèmes, prêt à donner vie à votre vision avec une touche unique et moderne."
+    "paragraph1": "Alex Nothing est un producteur, DJ et sound designer dont le projet s’est construit à la croisée du rythme et de la texture. Initié à la musique dès l’âge de 8 ans, il débute par l’étude de la batterie et des percussions en école de musique, développant très tôt une relation physique et instinctive au son. Cette approche le mènera ensuite à jouer au sein de plusieurs groupes de rock amateurs, forgeant une sensibilité live et une attention particulière aux dynamiques.",
+    "paragraph2": "Sa culture musicale s’est façonnée hors des cadres. Adolescent, il passe de longues heures à la médiathèque de sa ville, choisissant des disques presque au hasard, guidé par les pochettes et les univers visuels. De ces explorations naît une écoute profondément ouverte, nourrie aussi bien par le rock et le néo metal que par la pop et les musiques électroniques, avec une influence marquée des scènes anglaises.",
+    "paragraph3": "Avec Alex Nothing, le projet s’oriente vers une électronique rythmique et texturée, sans limite de format ni de genre. Ses productions naviguent entre house, deep house et garage, portées par des grooves souvent breakés, tout en conservant une dimension aérienne, sensible et ambient. Le sound design y occupe une place centrale, pensé comme un outil narratif autant que rythmique.",
+    "paragraph4": "En DJ set comme en production, Alex Nothing explore les contrastes : tension et relâchement, densité et espace, énergie club et introspection. Refusant toute étiquette figée, il conçoit sa musique comme un terrain d’expérimentation permanente, guidé par l’émotion, le mouvement et la recherche sonore."
   },
   "contact": {
     "title": "Contact",
@@ -103,22 +104,17 @@
   "menu": {
     "address": {
       "name": "Alex Nothing",
-      "street": "9 quao Androe Rockfield",
-      "city": "69001 Ontario",
-      "country": "Canada"
+      "city": "33000 Bordeaux",
+      "country": "France"
     },
     "contactInfo": {
-      "email1": "contact@stefanmarkovic.fr",
-      "email2": "job@stefanmarkovic.fr",
-      "phone": "01 62 31 82 42"
+      "email": "alexnothing.music@gmail.com"
     }
   },
   "socials": {
     "instagram": "Instagram",
-    "linkedin": "LinkedIn",
-    "twitter": "Twitter",
-    "facebook": "Facebook",
-    "vimeo": "Vimeo"
+    "tiktok": "TikTok",
+    "facebook": "Facebook"
   },
   "cvItems": {
     "item1": "Développeur Full Stack Lead & Chef de Projet chez TechInnovate Solutions",

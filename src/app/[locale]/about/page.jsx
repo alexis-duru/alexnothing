@@ -45,7 +45,7 @@ const AboutPage = () => {
       );
 
       const applySplitType = (element) => {
-        const splitTexts = element.querySelectorAll("h1, h2, h3");
+        const splitTexts = element.querySelectorAll("h1, p");
         splitTexts.forEach((text) => {
           const split = new SplitType(text, {
             types: "lines",
@@ -169,7 +169,10 @@ const AboutPage = () => {
           <div className="about-intro">
             <div className="col about-portrait-img">
               <div className="about-portrait">
-                <img src="/about/portrait-min.jpg" alt="Portrait" />
+                <img
+                  src="/about/alex-nothing-portrait.webp"
+                  alt="Photo of Alex Nothing - By Maeldan"
+                />
               </div>
             </div>
             <div className="col about-copy-wrapper">
@@ -178,21 +181,23 @@ const AboutPage = () => {
               </div>
 
               <div className="about-copy" ref={aboutCopyRef}>
-                <h3>{t("paragraph1")}</h3>
+                <p>{t("paragraph1")}</p>
                 <br />
-                <h3>{t("paragraph2")}</h3>
+                <p>{t("paragraph2")}</p>
                 <br />
-                <h3>{t("paragraph3")}</h3>
+                <p>{t("paragraph3")}</p>
+                <br />
+                <p>{t("paragraph4")}</p>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="about-hero-img" ref={heroImgRef}>
+        {/* <div className="about-hero-img" ref={heroImgRef}>
           <img src="/about/portrait-2-min.jpg" alt="Portrait" />
-        </div>
+        </div> */}
 
-        <div className="container">
+        {/* <div className="container">
           <div className="cv-wrapper" ref={cvWrapperRef}>
             <div className="cv-header" ref={cvHeaderRef}>
               <h2>{t("cv")}</h2>
@@ -211,7 +216,7 @@ const AboutPage = () => {
               ))}
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </ReactLenis>
   );

@@ -7,21 +7,12 @@ export const links = [
 ];
 
 export const socials = [
-  { label: "Instagram", url: "https://instagram.com/codegridweb" },
-  { label: "LinkedIn", url: "https://linkedin.com/codegridweb" },
-  { label: "Twitter", url: "https://twitter.com/codegridweb" },
-  { label: "Facebook", url: "https://facebook.com/codegridweb" },
+  { label: "Instagram", url: "https://www.instagram.com/alexnothingmusic" },
+  { label: "LinkedIn", url: "https://www.linkedin.com/in/alexnothingmusic" },
+  { label: "Twitter", url: "https://twitter.com/alexnothingmusic" },
+  { label: "Facebook", url: "https://www.facebook.com/alexnothingmusic" },
 ];
 
-export const address = [
-  "Alex Nothing",
-  "9 quao Androe Rockfield",
-  "69001 Ontario",
-  "Canada",
-];
+export const address = ["Alex Nothing", "33000 Bordeaux", "France"];
 
-export const contactInfo = [
-  "contact@stefanmarkovic.fr",
-  "job@stefanmarkovic.fr",
-  "01 62 31 82 42",
-];
+export const contactInfo = ["alexnothing.music@gmail.com"];

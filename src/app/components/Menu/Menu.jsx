@@ -39,24 +39,27 @@ const Menu = () => {
   ];
 
   const socials = [
-    { label: tSocials("instagram"), url: "https://instagram.com/codegridweb" },
-    { label: tSocials("linkedin"), url: "https://linkedin.com/codegridweb" },
-    { label: tSocials("twitter"), url: "https://twitter.com/codegridweb" },
-    { label: tSocials("facebook"), url: "https://facebook.com/codegridweb" },
+    {
+      label: tSocials("instagram"),
+      url: "https://www.instagram.com/alexnothingmusic",
+    },
+    {
+      label: tSocials("tiktok"),
+      url: "https://www.tiktok.com/@alexnothingmusic",
+    },
+    {
+      label: tSocials("facebook"),
+      url: "https://www.facebook.com/alexnothing.music",
+    },
   ];
 
   const address = [
     tMenu("address.name"),
-    tMenu("address.street"),
     tMenu("address.city"),
     tMenu("address.country"),
   ];
 
-  const contactInfo = [
-    tMenu("contactInfo.email1"),
-    tMenu("contactInfo.email2"),
-    tMenu("contactInfo.phone"),
-  ];
+  const contactInfo = [tMenu("contactInfo.email")];
 
   useLayoutEffect(() => {
     gsap.registerPlugin(CustomEase);

@@ -1,8 +1,13 @@
 .about-intro {
-  width: 75%;
+  width: auto;
   margin: 0 auto;
   display: flex;
-  gap: 8em;
+  gap: 5rem;
+  max-width: 1600px;
+}
+
+.about-page p {
+  font-size: 20px;
 }
 
 .about-portrait-img {
