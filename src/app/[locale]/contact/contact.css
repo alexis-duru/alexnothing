@@ -14,14 +14,24 @@
   flex-direction: column;
   justify-content: flex-end;
   gap: 6em;
+  @media (max-width: 900px) {
+    gap: 3em;
+    justify-content: flex-start;
+  }
 }
 
 .contact-page .container .col:nth-child(1) {
   flex: 1;
+  @media (max-width: 900px) {
+    margin-top: 3em;
+  }
 }
 
 .contact-page .container .col:nth-child(2) {
   flex: 1.2;
+  @media (max-width: 900px) {
+    flex: unset;
+  }
 }
 
 .contact-page .title {
@@ -64,13 +74,17 @@
 
 @media (max-width: 900px) {
   .contact-page {
-    height: 150%;
+    height: 100%;
   }
 
   .contact-page .container {
     flex-direction: column-reverse;
     padding: 8em 2em 4em 2em;
     gap: 0em;
+    @media (max-width: 900px) {
+      padding: 6em 2em 2em 2em;
+      height: fit-content;
+    }
   }
 
   .contact-page .item p,

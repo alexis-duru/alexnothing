@@ -94,6 +94,13 @@
   height: 70px;
   display: flex;
   gap: 0.5em;
+  @media (max-width: 900px) {
+   /* Centrer les elements */
+   height: 50px;
+    right: 50%;
+    transform: translateX(50%);
+    /* Reduire la taille */
+  }
 }
 
 .slider .preview {

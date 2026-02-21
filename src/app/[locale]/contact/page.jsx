@@ -93,12 +93,6 @@ const Page = () => {
                 </p>
               </div>
             </div>
-            <div className="vat" ref={(el) => (sectionsRef.current[1] = el)}>
-              <div className="title">{/* <p>{t("vat")}</p> */}</div>
-              <div className="item">
-                <p>...</p>
-              </div>
-            </div>
           </div>
 
           <div className="col">
