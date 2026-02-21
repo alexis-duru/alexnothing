@@ -26,18 +26,22 @@ const Photos = () => {
     {
       src: "/assets/alex-nothing-iboat.webp",
       title: "The Revival Ensemble",
+      alt: "Photographie de Alex Nothing en Live à l'iboat à Bordeaux. Photos réalisés par Valentin Videgrain",
     },
     {
       src: "/assets/alex-nothing-meca-bordeaux.webp",
       title: "Above The Canvas",
+      alt: "Photographie de Alex Nothing à la Meca de Bordeaux. Photos réalisés par Agathe Falcetta",
     },
     {
       src: "/assets/alex-nothing-meca.webp",
       title: "Harmony in Every Note",
+      alt: "Photographie de Alex Nothing à la Meca de Bordeaux. Photos réalisés par Agathe Falcetta",
     },
     {
       src: "/assets/alex-nothing-iboat-premier-partie.webp",
       title: "Redefining Imagination",
+      alt: "Photographie de Alex Nothing en Live à l'iboat à Bordeaux. Photos réalisés par Vincent Fauchard",
     },
   ];
 
@@ -199,7 +203,10 @@ const Photos = () => {
       <div className="slider" ref={sliderRef}>
         <div className="slider-images" ref={sliderImagesRef}>
           <div className="img">
-            <img src="/assets/alex-nothing-iboat.webp" />
+            <img
+              src="/assets/alex-nothing-iboat.webp"
+              alt="Photographie de Alex Nothing en Live à l'iboat à Bordeaux. Photos réalisés par Valentin Videgrain"
+            />
           </div>
         </div>
 
@@ -236,7 +243,7 @@ const Photos = () => {
                 (previewsRef.current = [...(previewsRef.current || []), el])
               }
             >
-              <img src={image.src} />
+              <img src={image.src} alt={image.alt} />
             </div>
           ))}
         </div>

@@ -118,7 +118,7 @@ const AboutPage = () => {
               <div className="about-portrait">
                 <img
                   src="/about/alex-nothing-portrait.webp"
-                  alt="Alex Nothing"
+                  alt="Portrait de Alex Nothing, réalisé en 2026 par le photographe Maeldan en Studio à Bordeaux"
                 />
               </div>
             </div>

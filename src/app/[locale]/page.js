@@ -124,7 +124,10 @@ export default function Home() {
       <div className="home-page" ref={containerRef}>
         {/* ... reste du contenu ... */}
         <div className="hero-img">
-          <img src="/img/hero/hero-3.webp" alt="" />
+          <img
+            src="/img/hero/hero-3.webp"
+            alt="Photographie de Alex Nothing - Réalisé en 2026 par Maeldan"
+          />
         </div>
         <h1 className="hero-title">
           <div className="line" style={{ overflow: "hidden" }}>
