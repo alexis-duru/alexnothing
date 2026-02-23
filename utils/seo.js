@@ -78,9 +78,9 @@ export function constructMetadata({
       locale: locale === "fr" ? "fr_FR" : "en_US",
       images: [
         {
-          url: image || `${SITE_URL}/img/og-default.jpg`,
-          width: 1200,
-          height: 630,
+          url: image || `${SITE_URL}/og-default.jpg`,
+          width: 549,
+          height: 355,
           alt: title,
         },
       ],
@@ -89,7 +89,7 @@ export function constructMetadata({
       card: "summary_large_image",
       title: fullTitle,
       description,
-      images: [image || `${SITE_URL}/img/og-default.jpg`],
+      images: [image || `${SITE_URL}/og-default.jpg`],
       creator: "@alexnothing",
     },
   };
@@ -104,14 +104,14 @@ export function generatePersonJsonLd() {
     "@type": "Person",
     name: SITE_NAME,
     url: SITE_URL,
-    image: `${SITE_URL}/img/og-default.jpg`,
+    image: `${SITE_URL}/og-default.jpg`,
     jobTitle: "Electronic Music Artist",
     description:
       "Alex Nothing crafts a free-flowing and immersive form of electronic music",
     sameAs: [
-      "https://instagram.com/alexnothing",
-      "https://linkedin.com/in/alexnothing",
-      "https://vimeo.com/alexnothing",
+      "https://soundcloud.com/alexnothing",
+      "https://tiktok.com/@alexnothing",
+      "https://instagram.com/alexnothingmusic",
     ],
   };
 }
@@ -161,11 +161,11 @@ export function generateContactPageJsonLd() {
     mainEntity: {
       "@type": "Person",
       name: SITE_NAME,
-      email: "contact@alexnothing.com",
+      email: "alexnothing.music@gmail.com",
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Verona",
-        addressCountry: "IT",
+        addressLocality: "France",
+        addressCountry: "FR",
       },
     },
   };

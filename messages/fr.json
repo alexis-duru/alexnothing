@@ -1,14 +1,14 @@
 {
   "metadata": {
     "title": "Alex Nothing",
-    "description": "Alex Nothing crée une musique électronique fluide et immersive. Découvrez son univers artistique unique.",
+    "description": "Alex Nothing, artiste de musique électronique.",
     "home": {
       "title": "Alex Nothing",
-      "description": "Alex Nothing crée une musique électronique fluide et immersive. Découvrez son univers artistique unique mêlant sonorités électroniques et expériences sensorielles."
+      "description": "Alex Nothing, artiste de musique électronique. "
     },
     "about": {
       "title": "À propos",
-      "description": "Découvrez l'histoire et le parcours d'Alex Nothing, artiste de musique électronique. Biographie, CV et expériences créatives."
+      "description": "Découvrez l'histoire et le parcours d'Alex Nothing, artiste de musique électronique."
     },
     "portfolio": {
       "title": "Portfolio",
@@ -16,11 +16,11 @@
     },
     "photos": {
       "title": "Photos",
-      "description": "Galerie photo d'Alex Nothing : concerts, sessions studio, coulisses et moments capturés de son parcours artistique."
+      "description": "Découvez quelques photos d'Alex Nothing, artiste de musique électronique."
     },
     "contact": {
       "title": "Contact",
-      "description": "Contactez Alex Nothing pour vos projets, collaborations ou demandes de booking. Retrouvez toutes les informations de contact."
+      "description": "Contactez Alex Nothing, artiste de musique électronique, pour des collaborations, des bookings ou toute autre demande."
     },
     "sitemap": {
       "title": "Plan du site",
