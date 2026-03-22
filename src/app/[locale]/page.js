@@ -146,6 +146,17 @@ export default function Home() {
               {t("heroLine2")}
             </div>
           </div>
+          <div className="line" style={{ overflow: "hidden" }}>
+            <a
+              className="text-translate cta-link"
+              style={{ transform: "translateY(100%)" }}
+              href="https://wiseband.lnk.to/Alex-Nothing-Its-All-Gone"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t("heroLine3")}
+            </a>
+          </div>
         </h1>
       </div>
       <Footer />

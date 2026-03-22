@@ -65,6 +65,9 @@
 }
 
 .hero-title .line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
 
@@ -72,6 +75,20 @@
   position: relative;
   transform: translateY(70px);
   will-change: transform;
+}
+
+.hero-title .line .text-translate.cta-link {
+  display: inline-block;
+  padding: 5px 10px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 0.5px;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.hero-title .line .text-translate.cta-link:hover {
+ opacity: 0.8;
 }
 
 @media (max-width: 900px) {
