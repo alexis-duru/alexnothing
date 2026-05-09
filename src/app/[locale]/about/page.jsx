@@ -92,6 +92,8 @@ const AboutPage = () => {
 
   useGSAP(
     () => {
+      gsap.set(".about-copy", { autoAlpha: 0 });
+
       gsap.to(".about-portrait", {
         clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
         delay: 0.8,
@@ -104,6 +106,13 @@ const AboutPage = () => {
         delay: 1,
         duration: 1.5,
         ease: "power4.out",
+      });
+
+      gsap.to(".about-copy", {
+        autoAlpha: 1,
+        delay: 1.15,
+        duration: 0.8,
+        ease: "power2.out",
       });
     },
     { scope: container },

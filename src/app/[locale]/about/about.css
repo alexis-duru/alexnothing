@@ -20,6 +20,7 @@
 
 .about-copy {
   margin-top: 1.5rem;
+  opacity: 0;
 }
 
 .about-copy-wrapper {
