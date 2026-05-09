@@ -57,8 +57,8 @@ const AboutPage = () => {
               gsap.to(spans, {
                 y: 0,
                 stagger: 0.05,
-                delay: isDesktop ? 1.5 : 0, // Delay uniquement sur Desktop
-                duration: 1.5,
+                delay: isDesktop ? 0.2 : 0,
+                duration: 1.2,
                 opacity: 1,
                 ease: "power4.out",
                 overwrite: true,
@@ -96,22 +96,22 @@ const AboutPage = () => {
 
       gsap.to(".about-portrait", {
         clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
-        delay: 0.8,
-        duration: 1,
+        delay: 0.2,
+        duration: 0.9,
         ease: "power4.inOut",
       });
 
       gsap.to(".about-copy-title h1", {
         y: 0,
-        delay: 1,
-        duration: 1.5,
+        delay: 0.35,
+        duration: 1.1,
         ease: "power4.out",
       });
 
       gsap.to(".about-copy", {
         autoAlpha: 1,
-        delay: 1.15,
-        duration: 0.8,
+        delay: 0.45,
+        duration: 0.6,
         ease: "power2.out",
       });
     },
