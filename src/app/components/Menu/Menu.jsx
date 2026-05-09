@@ -27,7 +27,10 @@ const Menu = () => {
   const init = useRef(false);
   const container = useRef();
   const menuRef = useRef(null);
+  const routeTransitionRef = useRef(null);
+  const pendingRouteRef = useRef(null);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isRouteTransitioning, setIsRouteTransitioning] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
   const links = [
@@ -73,18 +76,21 @@ const Menu = () => {
     () => {
       if (menuRef.current) {
         const menu = menuRef.current;
-        const menuLinks = menu.querySelectorAll(".link a");
+        const menuLinks = menu.querySelectorAll(".link .link-wrapper");
         const socialItems = menu.querySelectorAll(".socials .line p");
-
-        menuLinks.forEach((link) => {
-          link.addEventListener("click", toggleMenu);
-        });
 
         gsap.set(menu, {
           clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
         });
         gsap.set(menuLinks, { y: 60 });
         gsap.set(socialItems, { y: 30 });
+
+        if (routeTransitionRef.current) {
+          gsap.set(routeTransitionRef.current, {
+            clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+            pointerEvents: "none",
+          });
+        }
 
         init.current = true;
       }
@@ -170,7 +176,7 @@ const Menu = () => {
         return !prevIsOpen;
       });
     }
-  }, [isAnimating, isOpen]);
+  }, [isAnimating]);
 
   const closeMenu = useCallback(() => {
     if (!isAnimating) {
@@ -187,8 +193,74 @@ const Menu = () => {
     router.replace(pathname, { locale: newLocale });
   }, [locale, router, pathname]);
 
+  const handleNavigate = useCallback(
+    (event, targetPath) => {
+      event.preventDefault();
+
+      if (
+        isAnimating ||
+        isRouteTransitioning ||
+        !routeTransitionRef.current ||
+        pathname === targetPath
+      ) {
+        if (pathname === targetPath) {
+          closeMenu();
+        }
+        return;
+      }
+
+      pendingRouteRef.current = targetPath;
+      setIsRouteTransitioning(true);
+      setIsOpen(false);
+
+      gsap.to(routeTransitionRef.current, {
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+        duration: 0.9,
+        ease: "hop",
+        onStart: () => {
+          routeTransitionRef.current.style.pointerEvents = "all";
+        },
+        onComplete: () => {
+          if (pendingRouteRef.current) {
+            router.push(pendingRouteRef.current);
+          }
+        },
+      });
+    },
+    [closeMenu, isAnimating, isRouteTransitioning, pathname, router],
+  );
+
+  useEffect(() => {
+    if (!isRouteTransitioning || !routeTransitionRef.current) {
+      return;
+    }
+
+    if (!pendingRouteRef.current || pathname !== pendingRouteRef.current) {
+      return;
+    }
+
+    const overlay = routeTransitionRef.current;
+
+    gsap.to(overlay, {
+      clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+      duration: 0.9,
+      delay: 0.15,
+      ease: "hop",
+      onComplete: () => {
+        overlay.style.pointerEvents = "none";
+        gsap.set(overlay, {
+          clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+        });
+        pendingRouteRef.current = null;
+        setIsRouteTransitioning(false);
+      },
+    });
+  }, [pathname, isRouteTransitioning]);
+
   return (
     <div ref={container}>
+      <div className="route-transition-layer" ref={routeTransitionRef} />
+
       <MenuBar
         isOpen={isOpen}
         toggleMenu={toggleMenu}
@@ -239,7 +311,10 @@ const Menu = () => {
             {links.map((link, index) => (
               <div className="link" key={index}>
                 <div className="link-wrapper">
-                  <Link href={link.path}>
+                  <Link
+                    href={link.path}
+                    onClick={(event) => handleNavigate(event, link.path)}
+                  >
                     <h1>{link.label}</h1>
                   </Link>
                 </div>
