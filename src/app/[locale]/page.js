@@ -150,7 +150,7 @@ export default function Home() {
             <a
               className="text-translate cta-link"
               style={{ transform: "translateY(100%)" }}
-              href="https://wiseband.lnk.to/Alex-Nothing-Its-All-Gone"
+              href="https://linktr.ee/alexnothing"
               target="_blank"
               rel="noopener noreferrer"
             >
