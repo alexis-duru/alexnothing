@@ -7,6 +7,7 @@ import Footer from "../components/Footer/Footer";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import CustomEase from "gsap/CustomEase";
+import { onRouteReady } from "../lib/routeTransition";
 
 let isInitialLoad = true;
 
@@ -33,7 +34,7 @@ export default function Home() {
   }, []);
 
   useGSAP(
-    () => {
+    (context, contextSafe) => {
       const tl = gsap.timeline();
 
       if (showPreloader) {
@@ -94,13 +95,17 @@ export default function Home() {
           "-=0.5",
         );
       } else {
-        gsap.to(".hero-title .line .text-translate", {
-          y: 0,
-          stagger: 0.1,
-          delay: 0.5,
-          duration: 1.5,
-          ease: "power4.out",
-        });
+        return onRouteReady(
+          contextSafe(() => {
+            gsap.to(".hero-title .line .text-translate", {
+              y: 0,
+              stagger: 0.1,
+              delay: 0.5,
+              duration: 1.5,
+              ease: "power4.out",
+            });
+          }),
+        );
       }
     },
     { scope: containerRef, dependencies: [] },
@@ -124,10 +129,16 @@ export default function Home() {
       <div className="home-page" ref={containerRef}>
         {/* ... reste du contenu ... */}
         <div className="hero-img">
-          <img
-            src="/img/hero/hero-3.webp"
-            alt="Photographie de Alex Nothing - Réalisé en 2026 par Maeldan"
-          />
+          <picture>
+            <source
+              media="(max-width: 1024px)"
+              srcSet="/img/hero/hero-tablette.webp"
+            />
+            <img
+              src="/img/hero/hero-desktop.webp"
+              alt="Photographie de Alex Nothing - Réalisé en 2026 par Maeldan"
+            />
+          </picture>
         </div>
         <h1 className="hero-title">
           <div className="line" style={{ overflow: "hidden" }}>

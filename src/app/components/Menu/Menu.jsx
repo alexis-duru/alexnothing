@@ -14,6 +14,10 @@ import MenuBar from "../MenuBar/MenuBar";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import CustomEase from "gsap/CustomEase";
+import {
+  startRouteTransition,
+  endRouteTransition,
+} from "../../lib/routeTransition";
 
 const Menu = () => {
   const t = useTranslations("navigation");
@@ -210,6 +214,7 @@ const Menu = () => {
       }
 
       pendingRouteRef.current = targetPath;
+      startRouteTransition();
       setIsRouteTransitioning(true);
       setIsOpen(false);
 
@@ -253,6 +258,7 @@ const Menu = () => {
         });
         pendingRouteRef.current = null;
         setIsRouteTransitioning(false);
+        endRouteTransition();
       },
     });
   }, [pathname, isRouteTransitioning]);
@@ -266,6 +272,7 @@ const Menu = () => {
         toggleMenu={toggleMenu}
         closeMenu={closeMenu}
         onSwitchLocale={switchLocale}
+        onNavigate={handleNavigate}
         localeSwitchLabel={tLang("switch")}
       />
 

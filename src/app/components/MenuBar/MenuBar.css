@@ -13,6 +13,11 @@
   user-select: none;
 }
 
+.logo a {
+  color: inherit;
+  font: inherit;
+}
+
 .menu-toggle-wrapper,
 .logo,
 .menu-bar-left {

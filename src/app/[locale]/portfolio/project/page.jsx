@@ -8,6 +8,7 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ReactLenis } from "@studio-freight/react-lenis";
+import { onRouteReady } from "../../../lib/routeTransition";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,8 +23,8 @@ const Page = () => {
   const nextProjectTitleRef = useRef(null);
 
   useGSAP(
-    () => {
-      const initSplitAndAnimate = async () => {
+    (context, contextSafe) => {
+      const initSplitAndAnimate = contextSafe(async () => {
         const { default: SplitType } =
           await import("../../../lib/SplitType/index");
 
@@ -92,11 +93,12 @@ const Page = () => {
             },
           });
         });
-      };
+      });
 
-      initSplitAndAnimate();
+      const cancelRouteReady = onRouteReady(initSplitAndAnimate);
 
       return () => {
+        cancelRouteReady();
         ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       };
     },

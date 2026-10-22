@@ -13,7 +13,7 @@ const Photos = () => {
   const counterRef = useRef(null);
   const titlesRef = useRef(null);
   const indicatorsRef = useRef(null);
-  const previewsRef = useRef(null);
+  const previewsRef = useRef([]);
   const sliderRef = useRef(null);
 
   // Create the tableau of the img paths, meta descriptption
@@ -75,8 +75,10 @@ const Photos = () => {
       }
 
       function updateActiveSlidePreview() {
-        previewsRef.current.forEach((prev) => prev.classList.remove("active"));
-        previewsRef.current[currentImg - 1].classList.add("active");
+        previewsRef.current.forEach((prev) =>
+          prev?.classList.remove("active"),
+        );
+        previewsRef.current[currentImg - 1]?.classList.add("active");
       }
 
       function animateSlide(direction) {
@@ -239,9 +241,7 @@ const Photos = () => {
             <div
               key={index}
               className={`preview ${index === 0 ? "active" : ""}`}
-              ref={(el) =>
-                (previewsRef.current = [...(previewsRef.current || []), el])
-              }
+              ref={(el) => (previewsRef.current[index] = el)}
             >
               <img src={image.src} alt={image.alt} />
             </div>

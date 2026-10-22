@@ -7,6 +7,7 @@ import "./portfolio.css";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ReactLenis } from "@studio-freight/react-lenis";
+import { onRouteReady } from "../../lib/routeTransition";
 
 const Page = () => {
   const t = useTranslations("navigation");
@@ -44,27 +45,31 @@ const Page = () => {
   }, []);
 
   useGSAP(
-    () => {
+    (context, contextSafe) => {
       if (isLoaded && containerRef.current) {
         const header = containerRef.current.querySelector(
           ".portfolio-header h1",
         );
         const cols = containerRef.current.querySelectorAll(".col");
 
-        gsap.to(header, {
-          y: 0,
-          delay: 0.75,
-          duration: 1.5,
-          ease: "power4.out",
-        });
+        const cancelRouteReady = onRouteReady(
+          contextSafe(() => {
+            gsap.to(header, {
+              y: 0,
+              delay: 0.75,
+              duration: 1.5,
+              ease: "power4.out",
+            });
 
-        gsap.to(cols, {
-          clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
-          duration: 1.5,
-          delay: 0.9,
-          ease: "power4.out",
-          stagger: 0.1,
-        });
+            gsap.to(cols, {
+              clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
+              duration: 1.5,
+              delay: 0.9,
+              ease: "power4.out",
+              stagger: 0.1,
+            });
+          }),
+        );
 
         cols.forEach((col) => {
           const img = col.querySelector("img");
@@ -96,6 +101,8 @@ const Page = () => {
             });
           });
         });
+
+        return cancelRouteReady;
       }
     },
     { scope: containerRef, dependencies: [isLoaded] },

@@ -8,6 +8,7 @@ import { useGSAP } from "@gsap/react";
 import CustomEase from "gsap/CustomEase";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { ReactLenis } from "@studio-freight/react-lenis";
+import { onRouteReady } from "../../lib/routeTransition";
 
 const AboutPage = () => {
   const t = useTranslations("about");
@@ -16,6 +17,9 @@ const AboutPage = () => {
 
   useEffect(() => {
     let splitInstances = [];
+    let cancelled = false;
+    let cancelRouteReady = () => {};
+    let resizeObserver = null;
 
     const init = async () => {
       const { default: SplitType } = await import("../../lib/SplitType/index");
@@ -70,50 +74,58 @@ const AboutPage = () => {
         }
       };
 
-      setupSplit();
+      // Le ResizeObserver déclenche setupSplit dès l'observe : on attend la fin de la transition
+      cancelRouteReady = onRouteReady(() => {
+        if (cancelled) return;
 
-      const resizeObserver = new ResizeObserver(() => {
-        setupSplit();
-        ScrollTrigger.refresh();
+        resizeObserver = new ResizeObserver(() => {
+          setupSplit();
+          ScrollTrigger.refresh();
+        });
+
+        if (container.current) resizeObserver.observe(container.current);
       });
-
-      if (container.current) resizeObserver.observe(container.current);
-
-      return () => resizeObserver.disconnect();
     };
 
     init();
 
     return () => {
+      cancelled = true;
+      cancelRouteReady();
+      resizeObserver?.disconnect();
       ScrollTrigger.getAll().forEach((t) => t.kill());
       splitInstances.forEach((si) => si.revert());
     };
   }, []);
 
   useGSAP(
-    () => {
+    (context, contextSafe) => {
       gsap.set(".about-copy", { autoAlpha: 0 });
 
-      gsap.to(".about-portrait", {
-        clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
-        delay: 0.2,
-        duration: 0.9,
-        ease: "power4.inOut",
-      });
+      return onRouteReady(
+        contextSafe(() => {
+          gsap.to(".about-portrait", {
+            clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
+            delay: 0.2,
+            duration: 0.9,
+            ease: "power4.inOut",
+          });
 
-      gsap.to(".about-copy-title h1", {
-        y: 0,
-        delay: 0.35,
-        duration: 1.1,
-        ease: "power4.out",
-      });
+          gsap.to(".about-copy-title h1", {
+            y: 0,
+            delay: 0.35,
+            duration: 1.1,
+            ease: "power4.out",
+          });
 
-      gsap.to(".about-copy", {
-        autoAlpha: 1,
-        delay: 0.45,
-        duration: 0.6,
-        ease: "power2.out",
-      });
+          gsap.to(".about-copy", {
+            autoAlpha: 1,
+            delay: 0.45,
+            duration: 0.6,
+            ease: "power2.out",
+          });
+        }),
+      );
     },
     { scope: container },
   );

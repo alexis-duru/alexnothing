@@ -3,6 +3,7 @@ import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import Menu from "../components/Menu/Menu";
+import AudioPlayer from "../components/AudioPlayer/AudioPlayer";
 import "../globals.css";
 import {
   constructMetadata,
@@ -64,6 +65,7 @@ export default async function LocaleLayout({ children, params }) {
         <NextIntlClientProvider messages={messages}>
           <Menu />
           {children}
+          <AudioPlayer />
         </NextIntlClientProvider>
       </body>
     </html>

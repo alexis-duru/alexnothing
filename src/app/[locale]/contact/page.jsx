@@ -5,6 +5,7 @@ import "./contact.css";
 
 import { gsap } from "gsap";
 import { ReactLenis } from "@studio-freight/react-lenis";
+import { onRouteReady } from "../../lib/routeTransition";
 
 const Page = () => {
   const t = useTranslations("contact");
@@ -13,27 +14,34 @@ const Page = () => {
   const sectionsRef = useRef([]);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.to(headerRef.current, {
-        y: 0,
-        duration: 1,
-        delay: 1,
-        ease: "power3.out",
-      });
+    const ctx = gsap.context(() => {}, container);
 
-      gsap.delayedCall(1.1, () => {
-        sectionsRef.current.forEach((section) => {
-          gsap.to(section.querySelectorAll("p"), {
-            y: 0,
-            duration: 1,
-            stagger: 0.1,
-            ease: "power3.out",
+    const cancelRouteReady = onRouteReady(() => {
+      ctx.add(() => {
+        gsap.to(headerRef.current, {
+          y: 0,
+          duration: 1,
+          delay: 1,
+          ease: "power3.out",
+        });
+
+        gsap.delayedCall(1.1, () => {
+          sectionsRef.current.forEach((section) => {
+            gsap.to(section.querySelectorAll("p"), {
+              y: 0,
+              duration: 1,
+              stagger: 0.1,
+              ease: "power3.out",
+            });
           });
         });
       });
-    }, container);
+    });
 
-    return () => ctx.revert();
+    return () => {
+      cancelRouteReady();
+      ctx.revert();
+    };
   }, []);
 
   return (

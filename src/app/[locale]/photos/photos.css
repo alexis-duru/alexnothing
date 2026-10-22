@@ -9,6 +9,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
+  cursor: pointer;
 }
 
 .slider .img {
@@ -19,7 +20,8 @@
 
 .slider-counter {
   position: absolute;
-  bottom: 2em;
+  /* Laisse la place au lecteur audio centré en bas */
+  bottom: calc(2em + 64px);
   left: 50%;
   transform: translateX(-50%);
   height: 24px;
@@ -79,6 +81,7 @@
 }
 
 .slider-indicators p {
+  cursor: pointer;
   position: relative;
   font-size: 40px;
   font-weight: 200;
@@ -97,6 +100,7 @@
   @media (max-width: 900px) {
    /* Centrer les elements */
    height: 50px;
+    bottom: 5em;
     right: 50%;
     transform: translateX(50%);
     /* Reduire la taille */

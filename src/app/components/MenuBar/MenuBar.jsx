@@ -8,8 +8,8 @@ import MenuBtn from "../MenuBtn/MenuBtn";
 const MenuBar = ({
   isOpen,
   toggleMenu,
-  closeMenu,
   onSwitchLocale,
+  onNavigate,
   localeSwitchLabel,
 }) => {
   const [time, setTime] = useState("");
@@ -44,8 +44,10 @@ const MenuBar = ({
           </p>
         </div>
       </div>
-      <div className="logo" onClick={closeMenu}>
-        <p>Alex Nothing</p>
+      <div className="logo">
+        <Link href="/" onClick={(event) => onNavigate(event, "/")}>
+          <p>Alex Nothing</p>
+        </Link>
       </div>
       <div className="menu-toggle-wrapper">
         <MenuBtn isOpen={isOpen} toggleMenu={toggleMenu} />

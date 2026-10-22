@@ -6,6 +6,7 @@ import "./sitemap.css";
 
 import { gsap } from "gsap";
 import { ReactLenis } from "@studio-freight/react-lenis";
+import { onRouteReady } from "../../lib/routeTransition";
 
 const SitemapPage = () => {
   const t = useTranslations("sitemap");
@@ -25,29 +26,36 @@ const SitemapPage = () => {
   ];
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.to(headerRef.current, {
-        y: 0,
-        duration: 1,
-        delay: 1,
-        ease: "power3.out",
-      });
+    const ctx = gsap.context(() => {}, container);
 
-      gsap.delayedCall(1.1, () => {
-        sectionsRef.current.forEach((section) => {
-          if (section) {
-            gsap.to(section.querySelectorAll("p, a"), {
-              y: 0,
-              duration: 1,
-              stagger: 0.08,
-              ease: "power3.out",
-            });
-          }
+    const cancelRouteReady = onRouteReady(() => {
+      ctx.add(() => {
+        gsap.to(headerRef.current, {
+          y: 0,
+          duration: 1,
+          delay: 1,
+          ease: "power3.out",
+        });
+
+        gsap.delayedCall(1.1, () => {
+          sectionsRef.current.forEach((section) => {
+            if (section) {
+              gsap.to(section.querySelectorAll("p, a"), {
+                y: 0,
+                duration: 1,
+                stagger: 0.08,
+                ease: "power3.out",
+              });
+            }
+          });
         });
       });
-    }, container);
+    });
 
-    return () => ctx.revert();
+    return () => {
+      cancelRouteReady();
+      ctx.revert();
+    };
   }, []);
 
   return (
